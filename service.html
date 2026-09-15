@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FreshKickers — Services</title>
+
+  <style>
+
+    :root {
+      --bg: #0f1116;
+      --muted: #9aa6b2;
+      --accent: #29d17a;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: white;
+    }
+
+
+    /* =========================
+       NAVBAR
+       ========================= */
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      background: var(--accent);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+
+    /* =========================
+       MAIN CONTAINER
+       ========================= */
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+
+    /* =========================
+       PAGE TITLE
+       ========================= */
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .page-title h1 {
+      color: var(--accent);
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .page-title p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 850px;
+      margin: auto;
+    }
+
+
+    /* =========================
+       SERVICES
+       ========================= */
+
+    .services {
+      display: flex;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .service-card {
+      flex: 1;
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 25px;
+    }
+
+    .service-content h2 {
+      color: var(--accent);
+      margin-top: 0;
+      font-size: 26px;
+    }
+
+    .service-content p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       PRICE LIST
+       ========================= */
+
+    .price-list {
+      margin-top: 20px;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       SPECIAL OFFER
+       ========================= */
+
+    .special {
+      background: rgba(41,209,122,0.1);
+      border: 1px solid var(--accent);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .special strong {
+      color: var(--accent);
+    }
+
+
+    /* =========================
+       ORDER SECTION
+       ========================= */
+
+    .order-section {
+      margin-top: 60px;
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 12px;
+    }
+
+    .order-section h2 {
+      color: var(--accent);
+      text-align: center;
+      font-size: 32px;
+      margin-top: 0;
+    }
+
+    .order-intro {
+      text-align: center;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto 35px;
+      line-height: 1.7;
+    }
+
+    .order-form {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: #111;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 7px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+
+    /* =========================
+       DELIVERY / PICKUP
+       ========================= */
+
+    .choice-box {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      flex: 1;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 18px;
+      cursor: pointer;
+    }
+
+    .choice:hover {
+      border-color: var(--accent);
+    }
+
+    .choice input {
+      margin-right: 8px;
+      accent-color: var(--accent);
+    }
+
+    .choice strong {
+      color: white;
+    }
+
+    .choice small {
+      display: block;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+
+    /* =========================
+       ADDRESS
+       ========================= */
+
+    #addressGroup {
+      display: none;
+    }
+
+
+    /* =========================
+       OTHER CUSTOM DESIGN
+       ========================= */
+
+    #otherStyleGroup {
+      display: none;
+    }
+
+
+    /* =========================
+       ORDER BUTTON
+       ========================= */
+
+    .order-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #07110c;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 25px;
+    }
+
+    .order-button:hover {
+      background: white;
+    }
+
+
+    /* =========================
+       ORDER CONFIRMATION
+       ========================= */
+
+    .confirmation {
+      display: none;
+      margin-top: 30px;
+      background: rgba(41,209,122,0.1);
+      border: 1px solid var(--accent);
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .confirmation h3 {
+      color: var(--accent);
+      font-size: 24px;
+    }
+
+    .order-number {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+
+    /* =========================
+       TRACK ORDER
+       ========================= */
+
+    .tracking-section {
+      margin-top: 50px;
+      background: #111;
+      padding: 35px;
+      border-radius: 12px;
+    }
+
+    .tracking-section h2 {
+      text-align: center;
+      color: var(--accent);
+    }
+
+    .tracking-section p {
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .tracking-form {
+      max-width: 600px;
+      margin: 25px auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .tracking-form input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 7px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    .tracking-form button {
+      background: var(--accent);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       TRACKING RESULT
+       ========================= */
+
+    .tracking-result {
+      display: none;
+      max-width: 700px;
+      margin: 25px auto;
+      padding: 25px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+
+    .tracking-result h3 {
+      color: var(--accent);
+    }
+
+    .status {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .tracking-steps {
+      margin-top: 20px;
+    }
+
+    .tracking-step {
+      padding: 12px;
+      border-left: 3px solid rgba(255,255,255,0.2);
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .tracking-step.active {
+      border-left-color: var(--accent);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    /* =========================
+       WHY CHOOSE US
+       ========================= */
+
+    .extra-services {
+      margin-top: 50px;
+      background: rgba(255,255,255,0.05);
+      padding: 35px;
+      border-radius: 12px;
+    }
+
+    .extra-services h2 {
+      text-align: center;
+      color: var(--accent);
+      margin-bottom: 30px;
+    }
+
+    .extra-grid {
+      display: flex;
+      gap: 25px;
+    }
+
+    .extra-box {
+      flex: 1;
+      background: #111;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .extra-box h3 {
+      color: var(--accent);
+    }
+
+    .extra-box p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+
+    /* =========================
+       COOKIE
+       ========================= */
+
+    .cookie {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      z-index: 50;
+    }
+
+    .cookie button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .services {
+        flex-direction: column;
+      }
+
+      .extra-grid {
+        flex-direction: column;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .choice-box {
+        flex-direction: column;
+      }
+
+      .tracking-form {
+        flex-direction: column;
+      }
+
+      .order-section {
+        padding: 25px 15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+
+  <div class="topbar">
+
+    <div class="logo">
+      <span></span>
+      FreshKickers
+    </div>
+
+    <div class="nav-links">
+
+      <a href="home.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="services.html">Services</a>
+
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+
+  <div class="container">
+
+
+    <!-- PAGE INTRODUCTION -->
+
+    <div class="page-title">
+
+      <h1>Our Services</h1>
+
+      <p>
+        At FreshKickers, we believe your sneakers are more than just
+        something you wear on your feet. They are part of your personality,
+        your confidence and your everyday style. That is why we provide
+        professional sneaker cleaning and creative customization services
+        designed to keep your kicks looking fresh and feeling like new.
+      </p>
+
+      <p>
+        Whether your favourite sneakers need a deep clean after a long day
+        or you want to create a completely unique pair that nobody else has,
+        our team is ready to bring your sneakers back to life.
+      </p>
+
+    </div>
+
+
+    <!-- =========================
+         SERVICE CARDS
+         ========================= -->
+
+    <div class="services">
+
+
+      <!-- SNEAKER WASH -->
+
+      <div class="service-card">
+
+        <img
+          src="images/service1.webp"
+          alt="Sneaker Washing"
+          class="service-image"
+        >
+
+        <div class="service-content">
+
+          <h2>Sneaker Wash</h2>
+
+          <p>
+            Our sneaker washing service is designed to remove dirt, stains,
+            dust and everyday marks from your favourite footwear. We carefully
+            clean your sneakers while paying attention to the material,
+            colour and condition of each pair.
+          </p>
+
+          <p>
+            From everyday sneakers to your favourite Jordans and Yeezys,
+            we work to restore that clean and fresh appearance. A clean pair
+            of sneakers can completely change your outfit and give you the
+            confidence to step out looking your best.
+          </p>
+
+
+          <div class="price-list">
+
+            <div class="price-item">
+              <span>Basic Sneaker Wash</span>
+              <span class="price">R80</span>
+            </div>
+
+            <div class="price-item">
+              <span>Deep Cleaning</span>
+              <span class="price">R120</span>
+            </div>
+
+            <div class="price-item">
+              <span>Premium Restoration</span>
+              <span class="price">R180</span>
+            </div>
+
+            <div class="price-item">
+              <span>Pickup & Delivery</span>
+              <span class="price">+R50</span>
+            </div>
+
+          </div>
+
+
+          <div class="special">
+
+            <strong>🔥 SPECIAL OFFER</strong>
+
+            <p>
+              Clean two pairs for only
+              <strong>R140!</strong>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CUSTOM DESIGNS -->
+
+      <div class="service-card">
+
+        <img
+          src="images/service2.webp"
+          alt="Custom Sneaker Design"
+          class="service-image"
+        >
+
+        <div class="service-content">
+
+          <h2>Custom Sneaker Designs</h2>
+
+          <p>
+            Your sneakers should be as unique as you are. Our custom sneaker
+            service allows you to transform an ordinary pair into something
+            that represents your personality, creativity and individual style.
+          </p>
+
+          <p>
+            You can choose from anime characters, graffiti, drawings,
+            writing, patterns, colours or even bring us your own idea.
+            Our goal is to turn your vision into a sneaker that gets
+            attention wherever you go.
+          </p>
+
+          <p>
+            Imagine walking into a room wearing a pair of sneakers that
+            nobody else has. With FreshKickers, you do not simply wear
+            sneakers — you make a statement.
+          </p>
+
+
+          <div class="price-list">
+
+            <div class="price-item">
+              <span>Simple Design</span>
+              <span class="price">From R250</span>
+            </div>
+
+            <div class="price-item">
+              <span>Anime Design</span>
+              <span class="price">From R350</span>
+            </div>
+
+            <div class="price-item">
+              <span>Graffiti Design</span>
+              <span class="price">From R350</span>
+            </div>
+
+            <div class="price-item">
+              <span>Full Custom Design</span>
+              <span class="price">From R500</span>
+            </div>
+
+            <div class="price-item">
+              <span>Pickup & Delivery</span>
+              <span class="price">+R50</span>
+            </div>
+
+          </div>
+
+
+          <div class="special">
+
+            <strong>🎨 MAKE IT YOURS</strong>
+
+            <p>
+              Have your own idea? Tell us what you want and we will
+              work with you to create a design that matches your style.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PLACE ORDER
+         ========================= -->
+
+    <section class="order-section">
+
+      <h2>Place Your Order</h2>
+
+      <p class="order-intro">
+        Ready to make your sneakers fresh? Complete the order form below.
+        Tell us exactly what you need, choose whether you will bring your
+        sneakers to us or want us to collect and deliver them, and we will
+        take care of the rest.
+      </p>
+
+
+      <form
+        class="order-form"
+        id="orderForm"
+      >
+
+
+        <!-- CUSTOMER DETAILS -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="customerName">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              required
+              placeholder="Enter your full name"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="phone">
+              Mobile Number
+            </label>
+
+            <input
+              type="tel"
+              id="phone"
+              required
+              placeholder="+27 Mobile Number"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="email">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="Enter your email"
+          >
+
+        </div>
+
+
+
+        <!-- SERVICE -->
+
+        <div class="form-group">
+
+          <label for="service">
+            What service do you need?
+          </label>
+
+          <select id="service" required>
+
+            <option value="">
+              Select a service
+            </option>
+
+            <option value="Sneaker Wash">
+              Sneaker Wash
+            </option>
+
+            <option value="Custom Design">
+              Custom Sneaker Design
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- SNEAKER DETAILS -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="brand">
+              Sneaker Brand
+            </label>
+
+            <input
+              type="text"
+              id="brand"
+              required
+              placeholder="e.g. Nike, Jordan, Adidas"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="quantity">
+              Number of Pairs
+            </label>
+
+            <input
+              type="number"
+              id="quantity"
+              min="1"
+              max="10"
+              value="1"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+
+        <!-- CUSTOM DESIGN -->
+
+        <div
+          class="form-group"
+          id="styleGroup"
+        >
+
+          <label for="style">
+            Custom Design Style
+          </label>
+
+          <select id="style">
+
+            <option value="">
+              Select design style
+            </option>
+
+            <option value="Animation">
+              Animation
+            </option>
+
+            <option value="Anime">
+              Anime
+            </option>
+
+            <option value="Writing">
+              Writing
+            </option>
+
+            <option value="Graffiti">
+              Graffiti
+            </option>
+
+            <option value="Drawing">
+              Drawing
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+
+
+        <!-- OTHER STYLE -->
+
+        <div
+          class="form-group"
+          id="otherStyleGroup"
+        >
+
+          <label for="otherStyle">
+            Describe Your Design
+          </label>
+
+          <textarea
+            id="otherStyle"
+            placeholder="Explain exactly what you would like us to create..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- ORDER DETAILS -->
+
+        <div class="form-group">
+
+          <label for="details">
+            Tell us more about your order
+          </label>
+
+          <textarea
+            id="details"
+            required
+            placeholder="For example: I want a black and red anime design on a pair of white Jordans..."
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- PICKUP / DELIVERY -->
+
+        <div class="form-group">
+
+          <label>
+            How will you get your sneakers to us?
+          </label>
+
+
+          <div class="choice-box">
+
+
+            <label class="choice">
+
+              <input
+                type="radio"
+                name="method"
+                value="Pickup"
+                required
+              >
+
+              <strong>📦 I will bring them</strong>
+
+              <small>
+                Bring your sneakers directly to FreshKickers.
+              </small>
+
+            </label>
+
+
+            <label class="choice">
+
+              <input
+                type="radio"
+                name="method"
+                value="Delivery"
+                required
+              >
+
+              <strong>🚚 Pickup & Delivery</strong>
+
+              <small>
+                We collect your sneakers and deliver them back to you.
+                Additional R50 applies.
+              </small>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ADDRESS -->
+
+        <div
+          class="form-group"
+          id="addressGroup"
+        >
+
+          <label for="address">
+            Pickup / Delivery Address
+          </label>
+
+          <textarea
+            id="address"
+            placeholder="Enter the address where we should collect and deliver your sneakers"
+          ></textarea>
+
+        </div>
+
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="order-button"
+        >
+          PLACE ORDER
+        </button>
+
+
+      </form>
+
+
+
+      <!-- ORDER CONFIRMATION -->
+
+      <div
+        class="confirmation"
+        id="confirmation"
+      >
+
+        <h3>
+          🎉 Order Successfully Placed!
+        </h3>
+
+        <p>
+          Thank you for choosing FreshKickers.
+          Your order has been received.
+        </p>
+
+        <p>
+          Your Order Number is:
+        </p>
+
+        <div
+          class="order-number"
+          id="orderNumber"
+        ></div>
+
+        <p>
+          Keep this order number safe. You can use it below
+          to track your order.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TRACK ORDER
+         ========================= -->
+
+    <section class="tracking-section">
+
+      <h2>
+        Track Your Order
+      </h2>
+
+      <p>
+        Enter your FreshKickers order number to check the current
+        status of your sneakers.
+      </p>
+
+
+      <div class="tracking-form">
+
+        <input
+          type="text"
+          id="trackingNumber"
+          placeholder="Enter order number"
+        >
+
+        <button
+          onclick="trackOrder()"
+        >
+          TRACK ORDER
+        </button>
+
+      </div>
+
+
+      <div
+        class="tracking-result"
+        id="trackingResult"
+      >
+
+        <h3>
+          Order:
+          <span id="displayOrderNumber"></span>
+        </h3>
+
+        <p>
+          Current Status:
+        </p>
+
+        <div
+          class="status"
+          id="orderStatus"
+        >
+          Order Received
+        </div>
+
+
+        <div class="tracking-steps">
+
+          <div class="tracking-step active">
+            ✓ Order Received
+          </div>
+
+          <div class="tracking-step">
+            2. Order Processing
+          </div>
+
+          <div class="tracking-step">
+            3. Sneakers Being Cleaned / Customized
+          </div>
+
+          <div class="tracking-step">
+            4. Ready for Pickup / Delivery
+          </div>
+
+          <div class="tracking-step">
+            5. Order Completed
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WHY CHOOSE US
+         ========================= -->
+
+    <section class="extra-services">
+
+      <h2>
+        Why Choose FreshKickers?
+      </h2>
+
+
+      <div class="extra-grid">
+
+
+        <div class="extra-box">
+
+          <h3>
+            ✨ Quality Work
+          </h3>
+
+          <p>
+            We pay attention to every detail and treat every pair
+            of sneakers with care, helping them look their best.
+          </p>
+
+        </div>
+
+
+        <div class="extra-box">
+
+          <h3>
+            🎨 Creative Designs
+          </h3>
+
+          <p>
+            Your imagination is the limit. From anime and graffiti
+            to drawings and custom artwork, we create designs
+            that represent you.
+          </p>
+
+        </div>
+
+
+        <div class="extra-box">
+
+          <h3>
+            🚚 Convenient Service
+          </h3>
+
+          <p>
+            Choose to bring your sneakers to us or let us collect
+            and deliver them directly to your chosen address.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- =========================
+       COOKIE NOTICE
+       ========================= -->
+
+  <div
+    class="cookie"
+    id="cookieNotice"
+  >
+
+    <span>
+      We use cookies to give you the best FreshKickers experience.
+    </span>
+
+    <button
+      onclick="document.getElementById('cookieNotice').style.display='none'"
+    >
+      GOT IT
+    </button>
+
+  </div>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
+  <script>
+
+
+    /* =========================
+       SERVICE SELECTION
+       ========================= */
+
+    const service = document.getElementById("service");
+
+    const styleGroup = document.getElementById("styleGroup");
+
+    const style = document.getElementById("style");
+
+    const otherStyleGroup =
+      document.getElementById("otherStyleGroup");
+
+
+    service.addEventListener("change", function() {
+
+      if (service.value === "Custom Design") {
+
+        styleGroup.style.display = "block";
+
+        style.required = true;
+
+      } else {
+
+        styleGroup.style.display = "none";
+
+        otherStyleGroup.style.display = "none";
+
+        style.required = false;
+
+      }
+
+    });
+
+
+
+    /* =========================
+       OTHER DESIGN SELECTION
+       ========================= */
+
+    style.addEventListener("change", function() {
+
+      if (style.value === "Other") {
+
+        otherStyleGroup.style.display = "block";
+
+      } else {
+
+        otherStyleGroup.style.display = "none";
+
+      }
+
+    });
+
+
+
+    /* =========================
+       PICKUP / DELIVERY
+       ========================= */
+
+    const addressGroup =
+      document.getElementById("addressGroup");
+
+    const address =
+      document.getElementById("address");
+
+
+    const methods =
+      document.querySelectorAll('input[name="method"]');
+
+
+    methods.forEach(function(method) {
+
+      method.addEventListener("change", function() {
+
+        if (this.value === "Delivery") {
+
+          addressGroup.style.display = "block";
+
+          address.required = true;
+
+        } else {
+
+          addressGroup.style.display = "none";
+
+          address.required = false;
+
+        }
+
+      });
+
+    });
+
+
+
+    /* =========================
+       PLACE ORDER
+       ========================= */
+
+    document
+      .getElementById("orderForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        /*
+          Generate a simple order number.
+        */
+
+        const randomNumber =
+          Math.floor(1000 + Math.random() * 9000);
+
+
+        const orderNumber =
+          "FK-" + randomNumber;
+
+
+        document.getElementById("orderNumber").textContent =
+          orderNumber;
+
+
+        document.getElementById("trackingNumber").value =
+          orderNumber;
+
+
+        document.getElementById("confirmation").style.display =
+          "block";
+
+
+        /*
+          Save the order number in the browser.
+        */
+
+        localStorage.setItem(
+          "freshKickersOrder",
+          orderNumber
+        );
+
+
+        /*
+          Scroll to confirmation.
+        */
+
+        document.getElementById("confirmation")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      });
+
+
+
+    /* =========================
+       TRACK ORDER
+       ========================= */
+
+    function trackOrder() {
+
+      const enteredNumber =
+        document.getElementById("trackingNumber")
+        .value
+        .trim();
+
+
+      const savedOrder =
+        localStorage.getItem("freshKickersOrder");
+
+
+      if (
+        enteredNumber === "" ||
+        enteredNumber !== savedOrder
+      ) {
+
+        alert(
+          "Order not found. Please check your order number."
+        );
+
+        return;
+
+      }
+
+
+      document.getElementById(
+        "displayOrderNumber"
+      ).textContent = enteredNumber;
+
+
+      document.getElementById(
+        "orderStatus"
+      ).textContent = "Order Received";
+
+
+      document.getElementById(
+        "trackingResult"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "trackingResult"
+      ).scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
