@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FreshKickers — Walk It Like You Talk It</title>
+
+  <style>
+
+    :root {
+      --bg: #0f1116;
+      --muted: #9aa6b2;
+      --accent: #29d17a;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: white;
+    }
+
+    /* =========================
+       NAVBAR
+       ========================= */
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      background: var(--accent);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* =========================
+       NAVIGATION LINKS
+       ========================= */
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       LOGIN / SIGN UP
+       ========================= */
+
+    .auth {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .auth input {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      padding: 8px 10px;
+      outline: none;
+    }
+
+    .btn {
+      background: var(--accent);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #0b0f0c;
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: transparent;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       MAIN CONTAINER
+       ========================= */
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* =========================
+       HOME IMAGE
+       ========================= */
+
+    .home-image {
+      width: 80%;
+      max-width: 1100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* =========================
+       SERVICE CARDS
+       ========================= */
+
+    .cards {
+      display: flex;
+      width: 100%;
+      gap: 24px;
+      margin: 0 auto;
+    }
+
+    .card {
+      flex: 1;
+      height: 250px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+      /* Makes the card clickable */
+      text-decoration: none;
+
+      /* Smooth hover effect */
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .card.clean {
+      background-image:
+        linear-gradient(
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url("cooler/images/image1.jpg");
+    }
+
+    .card.custom {
+      background-image:
+        linear-gradient(
+          rgba(0, 0, 0, 0.4),
+          rgba(0, 0, 0, 0.4)
+        ),
+        url("cooler/images/image2.jpg");
+    }
+
+    /* =========================
+       WELCOME SECTION
+       ========================= */
+
+    .welcome {
+      margin-top: 30px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .welcome h2 {
+      color: var(--accent);
+    }
+
+    .welcome strong {
+      color: white;
+    }
+
+    /* =========================
+       SIGNUP MODAL
+       ========================= */
+
+    .signup-modal {
+      display: none;
+      position: fixed;
+      top: 100px;
+      right: 40px;
+      background: #111;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      z-index: 20;
+    }
+
+    .signup-modal input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      margin-top: 8px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .signup-modal button {
+      margin-top: 14px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      background: var(--accent);
+      border: none;
+      color: #0b0f0c;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .signup-modal h3 {
+      margin: 0 0 10px;
+    }
+
+    /* =========================
+       COOKIE NOTICE
+       ========================= */
+
+    .cookie {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .cookie button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #0b0f0c;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .cards {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 100%;
+        height: 220px;
+      }
+
+      .auth {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .signup-modal {
+        position: static;
+        margin: 20px auto;
+        width: 90%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+
+  <div class="topbar">
+
+    <div class="logo">
+      <span></span>
+      FreshKickers
+    </div>
+
+    <!-- NAVIGATION -->
+
+    <div class="nav-links">
+
+      <a href="home.html">Home</a>
+
+      <a href="about.html">About</a>
+
+      <a href="service.html">Services</a>
+
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <div class="auth">
+
+      <input
+        type="tel"
+        placeholder="+27 Mobile Number"
+      >
+
+      <input
+        type="password"
+        placeholder="Password"
+      >
+
+      <button class="btn">
+        Login
+      </button>
+
+      <button
+        class="btn-outline"
+        onclick="openSignup()"
+      >
+        Sign Up
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MAIN CONTENT
+       ========================= -->
+
+  <div class="container">
+
+    <!-- FreshKickers Home Image -->
+
+    <img
+      src="IMAGES/FreshKickers.jpeg"
+      alt="FreshKickers"
+      class="home-image"
+    >
+
+
+    <!-- SERVICE CARDS -->
+
+    <div class="cards">
+
+      <!-- SNEAKER WASH -->
+
+      <a
+        href="services.html"
+        class="card clean"
+      >
+        SNEAKER WASH
+      </a>
+
+
+      <!-- CUSTOM DESIGNS -->
+
+      <a
+        href="services.html"
+        class="card custom"
+      >
+        CUSTOM DESIGNS
+      </a>
+
+    </div>
+
+
+    <!-- WELCOME SECTION -->
+
+    <div class="welcome">
+
+      <h2>
+        Welcome to FreshKickers
+      </h2>
+
+      <p>
+        At FreshKickers, we bring your sneakers back to life and turn them
+        into art. Whether you want a deep clean, color restoration, or a
+        full custom design, our team ensures your kicks stay fresh — always.
+      </p>
+
+      <p>
+        <strong>
+          Come to FreshKickers because when them kicks are fresh,
+          you feel fresh. Never go wrong with FreshKickers.
+        </strong>
+      </p>
+
+      <p>
+        <strong>
+          Walk It Like You Talk It.
+          <br>
+          We Know We Got You.
+        </strong>
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       SIGNUP MODAL
+       ========================= -->
+
+  <div
+    class="signup-modal"
+    id="signupModal"
+  >
+
+    <h3>
+      Sign Up
+    </h3>
+
+    <input
+      type="text"
+      placeholder="Full Name"
+    >
+
+    <input
+      type="tel"
+      placeholder="+27 Mobile Number"
+    >
+
+    <input
+      type="email"
+      placeholder="Email"
+    >
+
+    <input
+      type="password"
+      placeholder="Create Password"
+    >
+
+    <button>
+      Create Account
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       COOKIE NOTICE
+       ========================= -->
+
+  <div
+    class="cookie"
+    id="cookieNotice"
+  >
+
+    <span>
+      We use cookies to give you the best FreshKickers experience.
+    </span>
+
+    <button
+      onclick="document.getElementById('cookieNotice').style.display='none'"
+    >
+      GOT IT
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
+  <script>
+
+    function openSignup() {
+
+      document.getElementById("signupModal").style.display = "block";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
