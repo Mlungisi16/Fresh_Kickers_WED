@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FreshKickers — About</title>
+
+  <style>
+
+    :root {
+      --bg: #0f1116;
+      --muted: #9aa6b2;
+      --accent: #29d17a;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: white;
+    }
+
+    /* =========================
+       NAVBAR
+       ========================= */
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      background: var(--accent);
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* =========================
+       NAVIGATION
+       ========================= */
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       MAIN CONTAINER
+       ========================= */
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    /* =========================
+       ABOUT SECTION
+       ========================= */
+
+    .about {
+      margin-top: 30px;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+    }
+
+    .about h1 {
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .about-content {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .about img {
+      width: 420px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .about-text strong {
+      color: white;
+    }
+
+    /* =========================
+       CUSTOM SNEAKER SECTION
+       ========================= */
+
+    .custom-section {
+      margin-top: 40px;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+    }
+
+    .custom-content {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .custom-content img {
+      width: 420px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .custom-text {
+      flex: 1;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .custom-text h2 {
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .custom-text p {
+      margin-bottom: 18px;
+    }
+
+    .custom-text strong {
+      color: white;
+    }
+
+    .custom-highlight {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       SERVICES BUTTON
+       ========================= */
+
+    .services-button {
+      display: block;
+      width: fit-content;
+      margin: 35px auto 0;
+      padding: 12px 25px;
+      background: var(--accent);
+      color: #0b0f0c;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .services-button:hover {
+      background: white;
+    }
+
+    /* =========================
+       COOKIE NOTICE
+       ========================= */
+
+    .cookie {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .cookie button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .custom-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .about img,
+      .custom-content img {
+        width: 100%;
+        max-width: 420px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+
+  <div class="topbar">
+
+    <div class="logo">
+
+      <span></span>
+
+      FreshKickers
+
+    </div>
+
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="nav-links">
+
+      <a href="home.html">
+        Home
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="service.html">
+        Services
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       ABOUT PAGE
+       ========================= -->
+
+  <div class="container">
+
+
+    <!-- ABOUT FRESHKICKERS -->
+
+    <section class="about">
+
+      <h1>
+        About FreshKickers
+      </h1>
+
+
+      <div class="about-content">
+
+
+        <img
+          src="images/about_1.jpeg"
+          alt="FreshKickers Team"
+        >
+
+
+        <div class="about-text">
+
+          <p>
+            FreshKickers was founded with a single goal — to make your
+            sneakers look and feel brand new. From expert cleaning and
+            restoration to unique sneaker customization, we take pride
+            in every pair that comes through our doors.
+          </p>
+
+
+          <p>
+            Our creative artists and sneaker specialists combine skill,
+            precision, and passion to give you a personalized experience
+            like no other.
+          </p>
+
+
+          <p>
+            Whether you rock classic Jordans, trendy Yeezys, or everyday
+            sneakers, we’ll make sure they’re always ready to step out
+            in style.
+          </p>
+
+
+          <p>
+
+            <strong>
+              FreshKickers — where style meets care.
+            </strong>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CUSTOM SNEAKER SECTION
+         ========================= -->
+
+    <section class="custom-section">
+
+
+      <div class="custom-content">
+
+
+        <!-- SNEAKER PICTURE -->
+
+        <img
+          src="images/about_2.webp"
+          alt="Custom FreshKickers Sneaker"
+        >
+
+
+        <!-- CUSTOM SNEAKER TEXT -->
+
+        <div class="custom-text">
+
+          <h2>
+            Make Your Sneakers Uniquely Yours
+          </h2>
+
+
+          <p>
+            Why wear the same sneakers as everyone else when you can
+            wear something that represents <strong>you</strong>?
+            At FreshKickers, our custom sneaker service allows you to
+            turn an ordinary pair of sneakers into a personal work of
+            art.
+          </p>
+
+
+          <p>
+            Whether you want bold colours, graffiti, anime characters,
+            drawings, patterns, or a completely original idea, our
+            creative team brings your vision to life. We pay attention
+            to every detail to make sure your sneakers look
+            <strong>
+              unique, stylish, and eye-catching.
+            </strong>
+          </p>
+
+
+          <p>
+            Imagine walking into a room wearing a pair of sneakers that
+            nobody else has. Your shoes become part of your identity,
+            your personality, and your style. With a FreshKickers custom
+            design, you don't just wear sneakers — you
+            <strong>
+              make a statement.
+            </strong>
+          </p>
+
+
+          <p class="custom-highlight">
+            Stand out. Be confident. Walk your own style.
+          </p>
+
+
+          <p>
+
+            <strong>
+              FreshKickers — Walk It Like You Talk It.
+            </strong>
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- GO TO SERVICES -->
+
+      <a
+        href="service.html"
+        class="services-button"
+      >
+        View Our Services
+      </a>
+
+    </section>
+
+  </div>
+
+
+
+  <!-- =========================
+       COOKIE NOTICE
+       ========================= -->
+
+  <div
+    class="cookie"
+    id="cookieNotice"
+  >
+
+    <span>
+      We use cookies to give you the best FreshKickers experience.
+    </span>
+
+
+    <button
+      onclick="document.getElementById('cookieNotice').style.display='none'"
+    >
+      GOT IT
+    </button>
+
+  </div>
+
+</body>
+
+</html>
