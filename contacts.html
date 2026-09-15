@@ -1,0 +1,476 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshKickers - Contact Us</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", "Segoe UI", sans-serif;
+            background: #0f1116;
+            color: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #111;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #29d17a;
+        }
+
+        .tagline {
+            font-size: 11px;
+            color: #aaa;
+            display: block;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #29d17a;
+        }
+
+        /* HERO */
+        .contact-hero {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+
+        .contact-hero h1 {
+            font-size: 45px;
+            color: #29d17a;
+            margin-bottom: 15px;
+        }
+
+        .contact-hero p {
+            max-width: 750px;
+            margin: auto;
+            color: #bbb;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        /* CONTACT CONTAINER */
+        .contact-container {
+            max-width: 1000px;
+            margin: 30px auto 70px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* CONTACT CARDS */
+        .contact-card {
+            background: #111;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .contact-card h2 {
+            color: #29d17a;
+            margin-bottom: 25px;
+            font-size: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .icon {
+            font-size: 28px;
+            min-width: 35px;
+        }
+
+        .contact-item h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #aaa;
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .contact-item a:hover {
+            color: #29d17a;
+        }
+
+        /* WHATSAPP BUTTON */
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white !important;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.05);
+            background: #1ebe5d;
+        }
+
+        .whatsapp-icon {
+            font-size: 23px;
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            color: white;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            background: #1a1d23;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #29d17a;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            padding: 14px;
+            background: #29d17a;
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #20b968;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            border-top: 1px solid #222;
+        }
+
+        footer strong {
+            color: #29d17a;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contact-hero h1 {
+                font-size: 35px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+
+        <div>
+            <div class="logo">FreshKickers</div>
+            <span class="tagline">Walk It Like You Talk It</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="contact-hero">
+
+        <h1>Contact FreshKickers</h1>
+
+        <p>
+            Have a question about our sneaker cleaning or custom sneaker
+            design services? Get in touch with FreshKickers today.
+            We are ready to help you keep your sneakers fresh, clean
+            and looking unique.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT INFORMATION + FORM -->
+    <section class="contact-container">
+
+        <!-- CONTACT DETAILS -->
+        <div class="contact-card">
+
+            <h2>Get In Touch</h2>
+
+            <!-- PHONE -->
+            <div class="contact-item">
+
+                <div class="icon">📞</div>
+
+                <div>
+                    <h3>Phone</h3>
+
+                    <a href="tel:0608050577">
+                        060 805 0577
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="contact-item">
+
+                <div class="icon">📧</div>
+
+                <div>
+                    <h3>Email</h3>
+
+                    <a href="mailto:FreshKickers@gmail.com">
+                        FreshKickers@gmail.com
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- ADDRESS -->
+            <div class="contact-item">
+
+                <div class="icon">📍</div>
+
+                <div>
+                    <h3>Address</h3>
+
+                    <p>
+                        64 11th Avenue,<br>
+                        Kensington,<br>
+                        Johannesburg
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- FACEBOOK -->
+            <div class="contact-item">
+
+                <div class="icon">📘</div>
+
+                <div>
+                    <h3>Facebook</h3>
+
+                    <a href="https://www.facebook.com/" target="_blank">
+                        FreshKickers
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+            <div class="contact-item">
+
+                <div class="icon">💬</div>
+
+                <div>
+                    <h3>WhatsApp</h3>
+
+                    <p>
+                        Chat with FreshKickers directly on WhatsApp.
+                    </p>
+
+                    <a
+                        class="whatsapp-button"
+                        href="https://wa.me/27608050577?text=Hello%20FreshKickers%2C%20I%20would%20like%20to%20ask%20about%20your%20sneaker%20services."
+                        target="_blank">
+
+                        <span class="whatsapp-icon">💬</span>
+                        Chat on WhatsApp
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+        <div class="contact-card">
+
+            <h2>Send Us A Message</h2>
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="phone">Phone Number</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    required
+                >
+
+
+                <label for="message">Message</label>
+
+                <textarea
+                    id="message"
+                    placeholder="Write your message here..."
+                    required
+                ></textarea>
+
+
+                <button type="submit" class="submit-button">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <strong>FreshKickers</strong> |
+            Walk It Like You Talk It
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+
+            alert(
+                "Thank you, " + name +
+                "! Your message has been received."
+            );
+
+            document.querySelector(".contact-form").reset();
+        }
+
+    </script>
+
+</body>
+</html>
+```
