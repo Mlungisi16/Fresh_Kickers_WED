@@ -1,0 +1,830 @@
+/* ==============================
+   FRESHKICKERS MAIN CSS
+   Walk It Like You Talk It
+   ============================== */
+
+:root {
+    --bg: #0f1116;
+    --muted: #9aa6b2;
+    --accent: #29d17a;
+    --white: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --dark: #111111;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+
+/* ==============================
+   GENERAL
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+
+/* ==============================
+   NAVIGATION BAR
+   ============================== */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 24px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Logo */
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Green logo square */
+
+.logo span {
+    background: var(--accent);
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 6px;
+
+    display: inline-block;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+/* ==============================
+   HOME PAGE
+   ============================== */
+
+.container {
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+}
+
+
+/* Home image */
+
+.home-image {
+    width: 100%;
+    max-width: 1200px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 30px;
+
+    border-radius: 12px;
+
+    object-fit: cover;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Welcome section */
+
+.welcome {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.welcome h1 {
+    color: var(--accent);
+
+    font-size: 36px;
+
+    margin-bottom: 15px;
+}
+
+.welcome p {
+    color: var(--muted);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+/* ==============================
+   HOME SERVICE CARDS
+   ============================== */
+
+.cards {
+    display: flex;
+
+    width: 100%;
+
+    gap: 24px;
+
+    margin: 0 auto;
+}
+
+
+/* Individual card */
+
+.card {
+    flex: 1;
+
+    height: 250px;
+
+    position: relative;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Sneaker wash background */
+
+.card.wash {
+    background-image: url("../cooler/images/image1.jpg");
+}
+
+
+/* Custom design background */
+
+.card.design {
+    background-image: url("../cooler/images/image2.jpg");
+}
+
+
+/* Dark overlay */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* Card text */
+
+.card h2 {
+    position: relative;
+
+    z-index: 2;
+
+    color: var(--white);
+
+    font-size: 28px;
+
+    margin: 0;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Card hover */
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+
+/* ==============================
+   ABOUT PAGE
+   ============================== */
+
+.about {
+    margin-top: 30px;
+
+    padding: 40px 20px;
+
+    background: var(--card-bg);
+
+    border-radius: 12px;
+}
+
+
+/* About heading */
+
+.about h1 {
+    color: var(--accent);
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+/* About content */
+
+.about-content {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* About image */
+
+.about img {
+    width: 420px;
+
+    max-width: 100%;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* About paragraph */
+
+.about-text {
+    flex: 1 1 400px;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+.about-text strong {
+    color: var(--white);
+}
+
+
+/* ==============================
+   CUSTOM SNEAKER SECTION
+   ============================== */
+
+.custom-section {
+    margin-top: 40px;
+
+    padding: 40px 20px;
+
+    background: var(--card-bg);
+
+    border-radius: 12px;
+}
+
+
+/* Image + text */
+
+.custom-content {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+}
+
+
+/* Custom sneaker image */
+
+.custom-content img {
+    width: 420px;
+
+    max-width: 100%;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Custom text */
+
+.custom-text {
+    flex: 1;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+
+/* Custom heading */
+
+.custom-text h2 {
+    color: var(--accent);
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 28px;
+}
+
+
+/* Paragraphs */
+
+.custom-text p {
+    margin-bottom: 18px;
+}
+
+
+/* Strong text */
+
+.custom-text strong {
+    color: var(--white);
+}
+
+
+/* Highlight sentence */
+
+.custom-highlight {
+    color: var(--accent);
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* ==============================
+   LOGIN / SIGNUP MODAL
+   ============================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 2000;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* Modal box */
+
+.modal-content {
+    background: #111111;
+
+    width: 300px;
+
+    max-width: 90%;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+
+    text-align: center;
+}
+
+
+/* Modal heading */
+
+.modal-content h2 {
+    color: var(--accent);
+
+    margin-top: 0;
+}
+
+
+/* Modal inputs */
+
+.modal-content input {
+    width: 100%;
+
+    padding: 12px;
+
+    margin: 8px 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 6px;
+
+    background: #0f1116;
+
+    color: var(--white);
+
+    outline: none;
+}
+
+
+/* Input focus */
+
+.modal-content input:focus {
+    border-color: var(--accent);
+}
+
+
+/* Modal button */
+
+.modal-content button {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: var(--accent);
+
+    color: #000;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.modal-content button:hover {
+    opacity: 0.85;
+}
+
+
+/* ==============================
+   LOGIN FORM
+   ============================== */
+
+.login-form {
+    max-width: 400px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: var(--card-bg);
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.login-form h2 {
+    color: var(--accent);
+
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 6px;
+
+    background: #111111;
+
+    color: white;
+
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: var(--accent);
+}
+
+.login-form button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: var(--accent);
+
+    color: #000;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   COOKIE NOTICE
+   ============================== */
+
+.cookie {
+    position: fixed;
+
+    bottom: 20px;
+
+    left: 20px;
+    right: 20px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 14px;
+
+    z-index: 3000;
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* Cookie button */
+
+.cookie button {
+    background: var(--accent);
+
+    color: #000;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.cookie button:hover {
+    opacity: 0.85;
+}
+
+
+/* ==============================
+   BUTTONS
+   ============================== */
+
+.btn {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background: var(--accent);
+
+    color: #000;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* ==============================
+   MOBILE / TABLET
+   ============================== */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+    .nav-links {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .container {
+        margin-top: 25px;
+
+        padding: 0 15px;
+    }
+
+    .welcome h1 {
+        font-size: 28px;
+    }
+
+    /* Service cards stack */
+
+    .cards {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+
+        height: 220px;
+    }
+
+    /* About section */
+
+    .about-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .about img {
+        width: 100%;
+
+        max-width: 420px;
+    }
+
+    /* Custom section */
+
+    .custom-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .custom-content img {
+        width: 100%;
+
+        max-width: 420px;
+    }
+
+    .custom-text h2 {
+        font-size: 24px;
+    }
+
+    /* Cookie */
+
+    .cookie {
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+    .cookie button {
+        width: 100%;
+    }
+}
+
+
+/* ==============================
+   SMALL PHONES
+   ============================== */
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .home-image {
+        border-radius: 8px;
+    }
+
+    .card {
+        height: 200px;
+    }
+
+    .card h2 {
+        font-size: 23px;
+    }
+
+    .about,
+    .custom-section {
+        padding: 25px 15px;
+    }
+
+    .welcome p,
+    .about-text,
+    .custom-text {
+        font-size: 15px;
+    }
+
+    .custom-highlight {
+        font-size: 18px;
+    }
+}
